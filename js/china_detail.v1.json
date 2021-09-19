@@ -21,7 +21,7 @@
       }
     },
     "data": {
-      "url": "js/china-provinces.json",
+      "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/js/china-provinces.json",
       "format": {"type": "topojson", "feature": "CHN_adm1"}
     },
     

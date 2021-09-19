@@ -1,6 +1,6 @@
 {
-    "$schema": "js/schema",
-    "$id": "js/schema",
+    "$schema": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/js/schema",
+    "$id": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/js/schema",
     "title": "Core schema meta-schema",
     "definitions": {
         "schemaArray": {

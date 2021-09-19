@@ -1,10 +1,10 @@
 {
-  "$schema": "js/v5.json",
+  "$schema": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/js/v5.json",
   "title": "Kg of Beef per person(2020)",
   "width": 800,
   "height": 600,
   "data": {
-    "url": "js/ne_110m_admin_0_countries.topojson",
+    "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
   "transform": [

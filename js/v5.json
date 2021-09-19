@@ -1,6 +1,6 @@
 {
   "$ref": "#/definitions/TopLevelSpec",
-  "$schema": "js/schema",
+  "$schema": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/js/schema",
   "definitions": {
     "Aggregate": {
       "anyOf": [

@@ -20,7 +20,7 @@
     }
   },
   "data": {
-    "url": "js/onlyAsia.topojson",
+    "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/js/onlyAsia.topojson",
     "format": {"type": "topojson", "feature": "custom"}
   },
   "transform": [
