@@ -6,7 +6,7 @@
         "config": {
     "background": "#87c2fd"
 },    
-  "data": {"url": "data/China(2010-2018).csv"},
+  "data": {"url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/China(2010-2018).csv"},
   "mark": {"type": "bar"},
   "encoding": {
         "x": {

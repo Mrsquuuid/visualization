@@ -28,7 +28,7 @@
       "lookup": "properties.admin",
       "from": {
         "data": {
-          "url": "data/vegetable_per_capita(2018).csv"
+          "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/vegetable_per_capita(2018).csv"
         },
         "key": "Area",
         "fields": ["Vegetable per capita"]

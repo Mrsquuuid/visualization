@@ -4,7 +4,7 @@
     "width": 500,
     "height": 400,
     "data": {
-      "url": "data/COVID_19_10_Oct_2020.csv"
+      "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/COVID_19_10_Oct_2020.csv"
     },
     "params" : [
         {

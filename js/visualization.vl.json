@@ -12,7 +12,7 @@
       "lookup": "properties.SU_A3",
       "from": {
         "data": {
-          "url": "data/meat_consumption_2020.csv"
+          "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/meat_consumption_2020.csv"
         },
         "key": "countries",
         "fields": ["volume"]

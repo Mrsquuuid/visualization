@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "title": "Food Security in Malaysia",
-    "data": {"url": "data/Malaysia(2010-2018).csv"},
+    "data": {"url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/Malaysia(2010-2018).csv"},
     "mark": {"type": "bar"},
     "encoding": {
           "x": {

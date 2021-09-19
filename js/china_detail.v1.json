@@ -31,7 +31,7 @@
         "lookup": "properties.NAME_1",
         "from": {
           "data": {
-            "url": "data/China_rice_producion_by_state.csv"
+            "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/China_rice_producion_by_state.csv"
           },
           "key": "Province",
           "fields": ["Tons"]
@@ -67,7 +67,7 @@
     "view": {"stroke": null}
     },
     {    "data": {
-          "url": "data/china_provinces_population.csv"
+          "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/china_provinces_population.csv"
         },
         
         "projection": {"type": "equalEarth"},

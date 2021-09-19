@@ -19,7 +19,7 @@
     }
   },
   "data": {
-    "url": "data/asia_diet(2018).csv"
+    "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/asia_diet(2018).csv"
   },
   "mark": {"type": "bar"},
   "transform": [

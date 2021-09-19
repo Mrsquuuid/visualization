@@ -20,7 +20,7 @@
     "params": [{"name": "livestock_Select"}]
   },
   "data": {
-    "url": "data/TonnesOfMeatPerRegion.csv"
+    "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/TonnesOfMeatPerRegion.csv"
   },
   "params": [
     {

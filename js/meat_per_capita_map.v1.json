@@ -28,7 +28,7 @@
       "lookup": "properties.admin",
       "from": {
         "data": {
-          "url": "data/meatPerPerson.csv"
+          "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/meatPerPerson.csv"
         },
         "key": "Area",
         "fields": ["Meat per Capita"]

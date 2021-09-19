@@ -13,7 +13,7 @@
     }
   },
   "data": {
-    "url": "data/Australia_fruits(2018).csv"
+    "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/Australia_fruits(2018).csv"
   },
   "layer": [
     {"mark": {"type": "arc", "innerRadius": 10, "stroke": "#fff"}},

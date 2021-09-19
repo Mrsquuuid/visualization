@@ -13,7 +13,7 @@
     }
   },
   "data": {
-    "url": "data/japan_Crop(2018).csv"
+    "url": "https://raw.githubusercontent.com/Mrsquuuid/visualization/master/data/japan_Crop(2018).csv"
   },
   "layer": [
     {"mark": {"type": "arc", "innerRadius": 10, "stroke": "#fff"}},
