@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+  <style>
+      .legend {
+        font-family: 'Comic Sans MS', cursive;
+        color: aliceblue;
+      font-size: 100%;
+    }
+    .vega-bind-name { 
+      color: white;
+      font-family: 'Comic Sans MS', cursive;
+      font-size: 110%;
+      position: relative;
+      margin-left: 120px;
+      }
+    .ranknum{
+      font-family: sans-serif;
+      font-size: 100%;
+       color : white;
+       margin: 10px;
+    }
+    .rankheader{
+      font-family: 'Comic Sans MS', cursive;
+      font-size: 220%;
+       color : aliceblue;
+       position: relative;
+       bottom: 15px;
+    }
+    .body{
+      background-color: #000000;
+      font-family:'Comic Sans MS', cursive;
+      color: white
+    }
+    .center{
+      align-self: center;
+    }
+    .highlight{
+      color:rgb(161, 0, 0);
+      font-size : 180% ; 
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .highlight_2{
+      color: rgb(40, 183, 154);
+      font-size : 150% ; 
+      font-family: 'Comic Sans MS', cursive;
+    }
+    .btn{
+        border: none;
+          color : white;
+          padding : 14px 28px;
+          cursor : pointer;
+      }
+      .china{background-color:#f54242;}
+      
+      .china:hover{background-color:#c73636;}
+      
+      .australia{background-color:#08149c;}
+      
+      .australia:hover{background-color:#050d66;}
+      
+      .india{background-color: #089c0a;}
+      
+      .india:hover{background-color: #076b09
+      }
+      
+      .japan{background-color:#999999}
+      
+      .japan:hover{background-color:rgb(109, 109, 109)}
+
+      .context {
+        position: relative;
+        left : 8px;
+        right : 8px;
+        margin:20px;
+        background-color: #000000;
+        font-family:Arial, Helvetica, sans-serif;
+      }
+
+      .inner_vis{
+        position: relative;
+        left: 40px;
+        right: 10px;
+      }
+      .upper{
+        margin-top: 10px;
+      }
+      .word_col{
+        color: white;
+      }
+     
+  </style>
+</head>
+<h1 align="center" style="font-family:'Comic Sans MS', cursive;color:white ;font-size : 300% ; ">Food Visualization in Asia & Oceania</h1>
+
+<!--component-->
+
+<!-- partial:index.partial.html -->
+<div align="center">
+<div class="container" align="center">
+  <div class="img-holder" align="center">
+    <img src="images/2_gaitubao_255x170_gaitubao_242x170.jpeg">
+    <div class="img-ref">
+      <img src="images/2_gaitubao_255x170_gaitubao_242x170.jpeg">
+    </div>
+  </div>
+
+  <div class="img-holder">
+    <img src="images/3_gaitubao_242x170.jpeg">
+    <div class="img-ref">
+      <img src="images/3_gaitubao_242x170.jpeg">
+    </div>
+  </div>
+
+  <div class="img-holder"><img src="images/1_gaitubao_242x170.png">
+    <div class="img-ref">
+      <img src="http://lorempixel.com/242/170/fashion/">
+    </div>
+  </div>
+  <div class="img-holder"><img src="images/4_gaitubao_242x161_gaitubao_242x170.jpeg">
+    <div class="img-ref">
+      <img src="http://lorempixel.com/242/170/nature/">
+    </div>
+  </div>
+  <div class="img-holder"><img src="images/5_gaitubao_242x161_gaitubao_242x170.jpeg">
+    <div class="img-ref">
+      <img src="images/5_gaitubao_242x161_gaitubao_242x170.jpeg">
+    </div>
+  </div>
+
+  <div class="img-holder"><img src="images/6_gaitubao_242x161_gaitubao_242x170.jpeg">
+    <div class="img-ref">
+      <img src="images/6_gaitubao_242x161_gaitubao_242x170.jpeg">
+    </div>
+  </div>
+  <div class="img-holder"><img src="images/7_242x161_242x170.jpeg">
+    <div class="img-ref">
+      <img src="images/7_242x161_242x170.jpeg">
+    </div>
+  </div>
+  <div class="img-holder"><img src="images/8_242x160_242x170.jpeg">
+    <div class="img-ref">
+      <img src="images/8_242x160_242x170.jpeg">
+    </div>
+  </div>
+  <div class="img-holder"><img src="images/9_242x198.jpeg">
+    <div class="img-ref">
+      <img src="images/9_242x198.jpeg">
+    </div>
+  </div>
+
+</div>
+
+
+<!--<div class="controller">-->
+<!--  Go to: <input type="text" class="">-->
+<!--</div>-->
+
+<div class="scrolller-container">
+  <div class="scroller"></div>
+</div>
+
+<script src='js/jquery.js'></script>
+<script src='js/TweenMax.min.js'></script><script src='js/Draggable.min.js'></script>
+
+<script src="js/index.js"></script>
+<div style="text-align:center;clear:both;position:absolute;top:0;left:260px">
+  <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+  <script src="/follow.js" type="text/javascript"></script>
+</div>
+
+
+</div>
+
+
+
+
+
+
+<body class="body">
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+  <br><br><br><br><br><br><br><br>
+    <h1 align="center" style="font-family: 'Comic Sans MS', cursive;color:yellow ;font-size : 300% ; ">Introduction</h1>
+    <strong style="color: white; font-family: 'Comic Sans MS', cursive;">In the era of coronavirus, the logistics between countries has received a lot of impact, and the issue of food security has attracted the attention of many countries. Since Asia's population accounts for 53.4% of the world's total, this issue will receive more attention. In addition, due to geographical location, the logistics of many countries in Oceania have also received a great impact, so this website also counts them.
+
+      What's more, <strong class="highlight_2"> 64 % </strong> of starving children in the whole
+      world lives in Asia. We have to face this problem and find ways to improve it. As we all know, as many as <strong class ="highlight_2">3.5 billion</strong> people in the world depend on rice for their livelihoods, and Asians are very dependent on rice.
+      <br></br>
+      This website will analyze each food category one by one, especially popular crops such as rice.
+    </strong>
+  </div>
+<br>
+<br><br></br>
+
+  <div class="context">
+
+
+      <table style="margin-right: 120px;">
+        <tr>
+          <td>
+            <strong class="rankheader" style="margin-left: 190px; color: yellow">KG of Meat Per Person</strong>
+            <div id="asia_meat_per_capita" style="margin-left: 150px"></div>
+          </td>
+          <td>
+            <strong style="color: white; font-family: 'Comic Sans MS', cursive;">Generally speaking, Chinese, Mongolian,
+              and Malaysians are in a leading position in this region in terms of meat per capita, but the situation in
+              countries such as Indonesia is not optimistic. Not only that, the epidemic in Southeast Asia is also very serious.
+              The number of new infections reached a peak of <strong class="highlight_2">56757 </strong> in July 2021. Malaysia, a neighboring country with a high meat per capita share,
+              is also in crisis in this regard. Therefore, Indonesia is facing an unprecedented crisis in meat import and consumption.
+            </strong>
+          </td>
+        </tr>
+      </table>
+      <br></br>
+    <br></br><br></br>
+
+
+
+
+    <table style="margin-right: 120px;">
+      <tr>
+        <td>
+          <strong class="rankheader" style="margin-left: 190px; color: yellow">Vegetable Per Person</strong>
+          <div id="asia_vege_per_capita" style="margin-left: 120px"></div>
+        </td>
+        <td>
+          <strong style="color: white; font-family: 'Comic Sans MS', cursive;">In this figure, it is obvious that China has the highest per capita share of vegetables, but compared with meat, the per capita share of vegetables in Malaysia and Mongolia is relatively low. Overall, China's meat and vegetables are in a leading position, and the diet is quite balanced.
+          </strong>
+        </td>
+      </tr>
+    </table>
+    <br></br>
+    <br></br><br></br>
+
+
+
+
+
+
+    <table style="margin-right: 120px;">
+      <tr>
+        <td>
+          <strong class="rankheader" style="margin-left: 200px;color: yellow">Meat Distribution</strong>
+          <div id = "meat_production"  style="margin-left: 120px">
+            <label>
+              <input  type="select" name="livestock_Select" class="legend">
+            </label>
+          </div>
+        </td>
+        <td>
+          <strong style="color: white; font-family: 'Comic Sans MS', cursive;">Comparing each continent horizontally, it is expected that the total amount of meat in Asia is the highest, especially in the past 20 years, which has developed quite rapidly, while the total amount in Africa is as low as ever.
+            In general, South America and Asia have relatively good growth momentum, but North America and Europe are in trouble.
+          </strong>
+        </td>
+      </tr>
+    </table>
+
+
+
+
+
+      <table style="margin: 120px;">
+        <tr>
+          <td>
+            <strong  class="rankheader" style="margin-left: 160px;color: yellow">Crop in Asia</strong>
+            <div id="main_crop" style="margin-right: 0px;margin-left: 10px"></div>
+          </td>
+          <td>
+            <strong style="color: white; font-family: 'Comic Sans MS', cursive;">Based on the discussion in the figure above, in this figure, we can clearly see the changes in crop production in Asia since 1990, and various indicators have increased significantly. Moreover,
+              <strong class="highlight_2">rice</strong> and <strong class="highlight_2">sugar cane</strong> have always been important crops for Asians to survive.
+              It is worth noting that in Asia, the growth rate of maize is the highest, which is enough to show that the importance of maize by Asians has been continuously increasing.</strong>
+          </td>
+
+        </tr>
+      </table>
+
+
+    <table style="margin: 120px;">
+      <tr>
+        <td>2
+          <strong class="rankheader" style="margin-left: 140px; color: yellow"  >Poultry Per Person</strong>
+          <div id="chick" style="margin: 20px;"></div>
+        </td>
+        <td>
+          <strong style="color: white; font-family: 'Comic Sans MS', cursive;">Poultry is also an important part of people's food. In this picture, we clearly see that in the past 20 years, Malaysia has the highest per capita share of poultry, but what is surprising is the highest growth rate for Myanmar owners. In fact, after investigation, in MYANMAR,
+            chickens are the most numerous farm animals in the country, totaling <strong class="highlight_2">70 million</strong>, followed by cows at 9.5 million, according to animal census in 2018, which shows the high demand for poultry by the local people.
+            Nevertheless, during the COVID-19 period, Myanmar’s chicken production dropped by <strong class="highlight_2">40%</strong> , which will be a very big challenge for Myanmar’s poultry market and people’s living habits. </strong>
+        </td>
+      </tr>
+    </table>
+
+
+
+    <table style="margin: 120px;" >
+      <tr align="center">
+        <td>
+          <strong class="rankheader" style="margin-left: 150px; color: yellow">Rice Top 5</strong>
+          <table style="margin-left: 130px">
+            <th><p style="color: white;">Rank</p></th>
+            <th><p style="margin-left: 40px;color: white;">Country</p></th>
+            <th><p style="color: white;">Total(Tonnes)</p></th>
+            <tr><td align="center" class="ranknum" style="background-color: #bd0026;">1</td> <td><img src="./data/china.png" height="30px" width="30px" style="margin-left: 40px;"></td> <td> <strong style="color: white;margin-left: 35px;">214,078,796</strong></td></tr>
+            <tr><td align="center" class="ranknum" style="background-color: #be2c49;">2</td> <td><img src="./data/india.png" height="30px" width="30px" style="margin-left: 40px;"></td> <td><strong style="color: white;margin-left: 35px;">172,580,000</strong></td></tr>
+            <tr><td align="center" class="ranknum" style="background-color: #dd617a;">3</td> <td><img src="./data/indonesia.png" height="30px" width="30px" style="margin-left: 40px;"></td> <td><strong style="color: white;margin-left: 35px;">83,037,000</strong></td></tr>
+            <tr><td align="center" class="ranknum" style="background-color: #e78397;">4</td> <td><img src="./data/bangladesh.png" height="30px" width="30px" style="margin-left: 40px;"></td> <td><strong style="color: white;margin-left: 35px;">56,417,319</strong></td></tr>
+            <tr><td align="center" class="ranknum" style="background-color: #f199aa;">5</td> <td><img src="./data/vietnam.png" height="30px" width="30px" style="margin-left: 40px;"></td> <td><strong style="color: white;margin-left: 35px;">44,046,250</strong></td></tr>
+          </table>
+        </td>
+        <td>
+          <strong class="rankheader" style="margin-left: 240px;color: yellow">Livestock Comparison</strong>
+          <div id="isotope" style="margin-left: 220px"></div>
+        </td>
+      </tr>
+    </table>
+
+    <br><br><br>
+      <table>
+        <h1 align="center" style="font-family: 'Comic Sans MS', cursive;color:yellow ;font-size : 300% ; ">Largest Food Producer in Asia</h1>
+        <br>
+        <tr>
+          <td>
+            <div id="china_detail">
+            </div>
+          </td>
+          <td>
+            <strong style="color: white; margin-left: 35px; font-family: 'Comic Sans MS', cursive;">
+              Rice is the first grain in China. China is the largest rice producer in the world, and its rice production area is second only to India. In addition, China is also a powerful country in rice science and technology in the world, and the world-famous rice hybridization was first applied to production in China. The stable growth of rice in China plays a very important basic role in ensuring the food security of the country and even the world.
+            In China, about <strong class="highlight_2">  70 % </strong> of Chinese people rely on rice.
+              China's rice planting area is about <strong class="highlight_2">30 million </strong> hectares, and there are 12 provinces with a planting area of more than <strong class="highlight_2">667000 </strong> hectares. The rice area of these 12 provinces accounts for about <strong class="highlight_2"> 85% </strong> of the total rice area in China.
+
+
+            <br> </br> However, several factors have 
+            threatened the sustainability and productivity of traditional puddled transplanted rice
+             production system, such as : 
+             </strong>
+             <ul>
+               <li><strong style="color: white; margin-left: 35px; font-family: 'Comic Sans MS', cursive;">climate change</strong></li>
+               <li><strong style="color: white; margin-left: 35px; font-family: 'Comic Sans MS', cursive;">decline in rice planting area</strong></li>
+               <li><strong style="color: white; margin-left: 35px; font-family: 'Comic Sans MS', cursive;">scarcity of labor availability</strong></li>
+               <li><strong style="color: white; margin-left: 35px; font-family: 'Comic Sans MS', cursive;">narrow genetic background of rice varieties</strong></li>
+               <li><strong style="color: white; margin-left: 35px; font-family: 'Comic Sans MS', cursive;">overuse of fertilizers and chemicals</strong></li>
+              </ul>
+          </td>
+        </tr>
+      </table>
+  </div>
+
+  <br>
+
+  </br>
+
+
+  <div id="hold" class = "upper" align="center"></div>
+<div  align="center">
+  <img id="btnchina" src="./data/china.png" style="cursor:pointer;margin-right: 40px" width="50" height="50" onclick="china()" >
+  <img id="btnaustralia" src="./data/au.png" style="cursor:pointer;margin-right: 40px" width="50" height="50" onclick="australia()">
+  <img id="btnindia" src="./data/india.png" style="cursor:pointer;margin-right: 40px" width="50" height="50" onclick="india()">
+  <img id="btnjapan" src="./data/jp.png" style="cursor:pointer" width="50" height="50" onclick="japan()">
+</div>
+<h1 align="center" style="font-family:'Comic Sans MS', cursive;color:yellow ;font-size : 300% ; ">Click Icon for More Info!</h1>
+<!-- partial:index.partial.html -->
+<canvas id="canvas"></canvas>
+<!-- partial -->
+<script src='gsap.min.js'></script><script  src="script.js"></script>
+
+<div style="text-align:center;clear:both;">
+  <script src="/statics.js" type="text/javascript"></script>
+</div>
+
+
+
+
+
+<script  type="text/javascript">
+
+  function australia(){
+    var table = document.createElement("table");
+    var row = document.createElement("tr");
+    var col1 = document.createElement("th");
+    var col2 = document.createElement("th");
+    var col3 = document.createElement("th");
+
+    var newDiv = document.createElement("DIV");
+
+    var vis2 = "js/australia_pie_graph.v1.json";
+    vegaEmbed('#pie_graph_australia', vis2).then(function(result) {
+    }).catch(console.error);
+
+    newDiv.id = "pie_graph_australia";
+    col2.innerHTML = "<table><tr><td><img src='./data/grape.png' height=40> <Strong class='highlight' style='margin-left:10px'>1,663,557 tonnes</strong></td></tr><tr><td><img src='./data/orange.png' height=40> <Strong class='highlight'style=' margin-left:10px'>378,233 tonnes</strong></td></tr><tr><td><img src='./data/banana.png' height=40> <Strong class='highlight' style='margin-left:10px'>373,931 tonnes</strong></td></tr></table>"
+
+    col1.appendChild(newDiv);
+    row.appendChild(col1);
+    row.appendChild(col2);
+    table.appendChild(row);
+
+    document.getElementById("hold").innerHTML="";
+    document.getElementById("hold").appendChild(table);
+  }
+
+  function china(){
+    var newDiv = document.createElement("DIV");
+    var table = document.createElement("table");
+    var row   = document.createElement("tr");
+    var col1  = document.createElement("th");
+    var col2  = document.createElement("th");
+
+
+    col2.innerHTML = "<table><tr><td><img src='./data/rice-bowl.png' height=40> <Strong class='highlight' style='margin-left:10px'>356,869,353 tonnes</strong></td></tr><tr><td><img src='./data/corn.png' height=40> <Strong class='highlight'style=' margin-left:10px'>257,348,659 tonnes</strong></td></tr><tr><td><img src='./data/broccoli.png' height=40> <Strong class='highlight' style='margin-left:10px'>174,861,648 tonnes</strong></td></tr></table>"
+    col2.setAttribute("style" ,"margin-left: 1px;");
+
+    var vis2 = "js/china_pie_graph.v1.json";
+    vegaEmbed('#china_pie_graph', vis2).then(function(result) {
+    }).catch(console.error);
+
+
+    
+    newDiv.id = "china_pie_graph";
+    col1.appendChild(newDiv);
+    row.appendChild(col1);
+    row.appendChild(col2);
+    table.appendChild(row);
+
+    document.getElementById("hold").innerHTML="";
+    document.getElementById("hold").appendChild(table);
+  }
+
+  function india(){
+    var table = document.createElement("table");
+    var row   = document.createElement("tr");
+    var col1  = document.createElement("th");
+    var col2  = document.createElement("th"); 
+
+
+    var newDiv = document.createElement("DIV");
+  
+
+    col2.innerHTML = "<table><tr><td><img src='./data/sugar-cane.png' height=40> <Strong class='highlight'>376,900,000 tonnes</strong></td></tr><tr><td><img src='./data/rice-bowl.png' height=40> <Strong class='highlight'>287,690,860 tonnes</strong></td></tr><tr><td><img src='./data/grain.png' height=40> <Strong class='highlight'>99,700,000 tonnes</strong></td></tr></table>"
+    col2.setAttribute("style" ,"margin-left: 1px;");
+
+
+    var vis2 = "js/india_pie_graph.v1.json";
+    vegaEmbed('#india_pie_graph', vis2).then(function(result) {
+    }).catch(console.error);
+
+    
+    newDiv.id = "india_pie_graph";
+
+    col1.appendChild(newDiv);
+    row.appendChild(col1);
+    row.appendChild(col2);
+    table.appendChild(row);
+
+    document.getElementById("hold").innerHTML="";
+    document.getElementById("hold").appendChild(table);
+  }
+
+  function japan(){
+    var table = document.createElement("table");
+    var row   = document.createElement("tr");
+    var col1  = document.createElement("th");
+    var col2  = document.createElement("th");
+    col2.innerHTML = "<table><tr><td><img src='./data/rice-bowl.png' height=40> <Strong class='highlight' style='margin-left:10px'>16,215,743 tonnes</strong></td></tr><tr><td><img src='./data/sugar-beet.png' height=40> <Strong class='highlight'style=' margin-left:10px'>3,611,000 tonnes</strong></td></tr><tr><td><img src='./data/potato.png' height=40> <Strong class='highlight' style='margin-left:10px'>2,261,945 tonnes</strong></td></tr></table>"
+    var newDiv = document.createElement("DIV");
+    var vis2 = "js/japan_pie_graph.v1.json";
+    vegaEmbed('#japan_pie_graph', vis2).then(function(result) {
+    }).catch(console.error);
+
+    
+    newDiv.id = "japan_pie_graph";
+    col1.appendChild(newDiv);
+    row.appendChild(col1);
+    row.appendChild(col2);
+    table.appendChild(row);
+
+    document.getElementById("hold").innerHTML="";
+    document.getElementById("hold").appendChild(table);
+  }
+
+  var vis1 = "./js/meat_by_region.v1.json";
+  vegaEmbed('#scatterplot_by_region', vis1).then(function(result) {}).catch(console.error);
+
+
+  var vis3 = "./js/australia_bar_graph.v1.json";
+  vegaEmbed('#bar_graph_australia', vis3).then(function(result) {
+  }).catch(console.error);
+
+  var vis4 = "./js/meat_per_capita_map.v1.json";
+  vegaEmbed('#asia_meat_per_capita', vis4).then(function(result) {
+  }).catch(console.error);
+
+  var vis11 = "./js/vege_per_capita_map.v1.json";
+  vegaEmbed('#asia_vege_per_capita', vis11).then(function(result) {
+  }).catch(console.error);
+
+
+  var vis5 = "./js/vege_per_capita_map.v1.json";
+  vegaEmbed('#asia_vege_per_capita', vis5).then(function(result) {
+  }).catch(console.error);
+
+  var vis6 = "./js/main_crop_in_asia.v1.json";
+  vegaEmbed('#main_crop', vis6).then(function(result) {
+  }).catch(console.error);
+
+  var vis7= "./js/meat_production_asia.v1.json";
+  vegaEmbed('#meat_production', vis7).then(function(result) {
+  }).catch(console.error);
+
+  var vis8="./js/isotope.v1.json"
+  vegaEmbed('#isotope', vis8).then(function(result) {
+  }).catch(console.error);
+
+  var vis9="./js/chicen_meat_per_capital.v1.json"
+  vegaEmbed('#chick', vis9).then(function(result) {
+  }).catch(console.error);
+
+  var vis10="./js/china_detail.v1.json"
+  vegaEmbed('#china_detail', vis10).then(function(result) {
+  }).catch(console.error);
+
+</script>
+</body>
+</html>

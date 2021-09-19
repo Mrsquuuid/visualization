@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 300,
+  "height": 280,
+  "config": {
+    "background": "#000000",
+    "title": {
+      "font": "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+      "fontSize": 40,
+      "color": "#000000"
+    },
+    "legend": {
+      "labelFont": "sans-serif",
+      "labelColor": "aliceblue",
+      "labelFontSize": 10,
+      "titleFont": "sans-serif",
+      "titleFontSize": 15,
+      "titleColor": "aliceblue"
+    },
+    "params": [{"name": "livestock_Select"}]
+  },
+  "data": {
+    "url": "data/TonnesOfMeatPerRegion.csv"
+  },
+  "params": [
+    {
+      "name": "livestock_Select",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Meat indigenous, pig",
+          "Meat indigenous, sheep",
+          "Meat indigenous, cattle",
+          "Meat indigenous, chicken",
+          "Meat indigenous, goat"
+        ],
+        "labels": ["Show All", "pig", "sheep", "cattle", "chicken", "goat"],
+        "name": "Livestock : "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "livestock_Select == null  || datum.Item == livestock_Select"},
+    {
+      "aggregate": [{"op": "sum", "field": "Value", "as": "mean_acc"}],
+      "groupby": ["Area", "Year"]
+    }
+  ],
+  "selection": {
+    "continent_highlight": {
+      "type": "multi",
+      "fields": ["Area"],
+      "bind": "legend"
+    }
+  },
+  "mark": "area",
+  "encoding": {
+    "x": {"timeUnit": "year", "field": "Year", "axis": {"format": "%Y", "labelColor": "white"}},
+    "y": {"aggregate": "sum", "field": "mean_acc", "title": "", "axis": {"labelColor": "white"}},
+    "color": {
+      "field": "Area",
+      "title": "region",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Africa",
+          "Northern America",
+          "South America",
+          "Asia",
+          "Europe",
+          "Oceania"
+        ],
+        "range": [
+          "#8a8a8a",
+          "#fff700",
+          "#00ffff",
+          "#eb3434",
+          "#ff8400",
+          "green"
+        ]
+      }
+    },
+    "opacity": {
+      "condition": {"selection": "continent_highlight", "value": 0.8},
+      "value": 0.1
+    },
+    "tooltip": [
+      {
+        "field": "mean_acc",
+        "type": "quantitative",
+        "title": "Aggregated Total(Tonnes)"
+      }
+    ]
+  },
+  "view": {"stroke": null}
+}

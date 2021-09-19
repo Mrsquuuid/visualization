@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": "Top 3 crop produced in Australia",
+  "config": {
+    "background": "#000000",
+    "title": {
+      "font": "'Comic Sans MS', cursive",
+      "fontSize": "40",
+      "color": "aliceblue",
+      "align": "center"
+    }
+  },
+  "data": {
+    "url": "data/Australia_fruits(2018).csv"
+  },
+  "layer": [
+    {"mark": {"type": "arc", "innerRadius": 10, "stroke": "#fff"}},
+    {
+      "mark": {"type": "text", "radiusOffset": 22},
+      "encoding": {
+        "text": {"field": "Item", "type": "nominal"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Item'] == 'Grapes' || datum['Item'] == 'Bananas' ||  datum['Item'] == 'Oranges' || datum['Item'] == 'Others'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "theta": {"field": "Value", "type": "quantitative", "stack": true},
+    "radius": {
+      "field": "Value",
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 100}
+    },
+    "color": {
+      "field": "Item",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "Melons, other (inc.cantaloupes)",
+          "Apples",
+          "Bananas",
+          "Oranges",
+          "Grapes",
+          "Others"
+        ],
+        "range": [
+          "#464646",
+          "#464646",
+          "#fff700",
+          "#ff8400",
+          "#eb3434",
+          "#464646"
+        ]
+      }
+    } ,
+    "tooltip": [
+      {
+        "field": "Value",
+        "type": "quantitative",
+        "title": "Total (Tonnes)"
+      }
+    ]
+  },
+  "view": {"stroke": null}
+}

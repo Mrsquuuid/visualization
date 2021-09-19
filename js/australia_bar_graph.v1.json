@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 300,
+  "height": 300,
+  
+
+    "config": {
+      "background": "#87c2fd"
+  },
+  "title": "Meat Production in Australia",
+  "data": {"url": "data/Australia(2010-2018).csv"},
+  "mark": {"type": "bar"},
+  "encoding": {
+        "x": {
+      "timeUnit": "year",
+      "field": "Year",
+      "type": "ordinal",
+      "title": "year"
+    },
+      "y": {
+      "aggregate": "sum",
+      "field" : "Value",
+      "type": "quantitative" , 
+      "title": "Tonnes "
+    },
+    "color": {
+      "field": "Item",
+      "type": "nominal",
+      "scale": {
+        "domain": ["cattle", "chicken", "pig", "sheep"],
+        "range": ["#1b9e77", "#d95f02", "#7570b3", "#e7298a"  ]
+      }
+    }
+  },
+        "view": {"stroke": null} 
+}

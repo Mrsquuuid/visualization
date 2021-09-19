@@ -1,0 +1,28 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "title": "Food Security in Malaysia",
+    "data": {"url": "data/Malaysia(2010-2018).csv"},
+    "mark": {"type": "bar"},
+    "encoding": {
+          "x": {
+        "timeUnit": "year",
+        "field": "Year",
+        "type": "ordinal",
+        "title": "year"
+      },
+        "y": {
+        "aggregate": "sum",
+        "field" : "Value",
+        "type": "quantitative" , 
+        "title": "Tonnes "
+      },
+      "color": {
+        "field": "Item",
+        "type": "nominal",
+        "scale": {
+          "domain": ["cattle", "chicken", "pig", "sheep"],
+          "range": ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3" ]
+        }
+      }
+    }
+  }

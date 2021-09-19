@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 300,
+  "height": 300,
+  "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
+  "data": {
+    "url": "data/per-capita-meat-consumption-by-type-kilograms-per-year.csv"
+  },
+  "config": {
+    "view": {"stroke": null},
+    "background": "#000000",
+    "title": {
+      "font": "'Comic Sans MS', cursive",
+      "fontSize": 40,
+      "color": "aliceblue",
+      "align": "center"
+    },
+    "legend": {
+      "labelFont": "'Comic Sans MS', cursive",
+      "labelColor": "aliceblue",
+      "labelFontSize": 13,
+      "titleFont": "'Comic Sans MS', cursive",
+      "titleFontSize": 15,
+      "titleColor": "aliceblue"
+    }
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "Entity",
+        "oneOf": [
+          "China",
+          "India",
+          "Russia",
+          "Indonesia",
+          "Japan",
+          "Malaysia",
+          "Asia",
+          "Thailand",
+          "Japan",
+          "South Korea",
+          "Vietnam",
+          "Cambodia",
+          "Philippines",
+          "Myanmar",
+          "Bangladesh",
+          "Pakistan",
+          "Yemen",
+          "Iran"
+        ]
+      }
+    },
+    {"calculate": "datum.Entity == 'Malaysia' ", "as": "pos"},
+    {"filter": {"field": "Year", "oneOf": [2000, 2010]}}
+  ],
+  "encoding": {
+    "x": {
+      "field": "Poultry",
+      "type": "quantitative",
+      "axis": {
+        "title": "Poultry per person (kg)",
+        "titleColor": "aliceblue",
+        "labelColor": "white"}
+    },
+    "y": {
+      "field": "Entity",
+      "type": "nominal",
+      "title": "Country",
+      "axis": {
+        "offset": 5,
+        "ticks": false,
+        "minExtent": 70,
+        "domain": false,
+        "labelFont": "monospace",
+        "labelFontSize": 12,
+        "title": "",
+        "labelColor": "white"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "detail": {"field": "Entity", "type": "nominal"},
+        "color": {"value": "#ffc400"}
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true},
+      "encoding": {
+        "color": {
+          "field": "Year",
+          "type": "ordinal",
+          "scale": {"domain": [2000, 2010], "range": ["#ffc400", "#ffffff"]},
+          "title": "Year"
+        },
+        "size": {"value": 150},
+        "opacity": {"value": 1},
+        "tooltip": [
+          {"field": "Entity", "type": "nominal", "title": "Countries"}
+        ]
+      },
+      "view": {"stroke": null}
+    }
+  ]
+}

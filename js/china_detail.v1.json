@@ -1,0 +1,116 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "title": "Rice Production Distribution in China ",
+    "width": 600,
+    "height": 600,
+    "config": {
+      "background": "#000000",
+      "title": {
+        "font": "'Comic Sans MS', cursive",
+        "fontSize": "40",
+        "color": "yellow",
+        "align": "center"
+      },
+      "legend": {
+        "labelFont": "'Comic Sans MS', cursive",
+        "labelColor": "aliceblue",
+        "labelFontSize": "13",
+        "titleFont": "sans-serif",
+        "titleFontSize": "15",
+        "titleColor": "aliceblue"
+      }
+    },
+    "data": {
+      "url": "js/china-provinces.json",
+      "format": {"type": "topojson", "feature": "CHN_adm1"}
+    },
+    
+    "layer" : [{
+        "transform": [
+      {
+        "lookup": "properties.NAME_1",
+        "from": {
+          "data": {
+            "url": "data/China_rice_producion_by_state.csv"
+          },
+          "key": "Province",
+          "fields": ["Tons"]
+        }
+      }
+    ],
+    "projection": {"type": "equalEarth"},
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "Tons",
+        "type": "quantitative",
+        "title": "Tonnes",
+        "scale": {
+          "type": "threshold",
+          "domain": [1000,2000,3000,4000,5000,6000,7000,8000],
+          "range": [
+            "#ffffe5",
+            "#fff7bc",
+            "#fee391",
+            "#fec44f",
+            "#fe9929",
+            "#ec7014",
+            "#cc4c02",
+            "#8c2d04"
+          ]
+        }
+      },
+      "tooltip": [
+        {"field": "properties.NAME_1", "type": "nominal", "title": "Province"}
+      ]
+    },
+    "view": {"stroke": null}
+    },
+    {    "data": {
+          "url": "data/china_provinces_population.csv"
+        },
+        
+        "projection": {"type": "equalEarth"},
+        "layer" : [{
+         "mark": {"type": "circle"},
+         "encoding": {
+           "longitude":{
+             "field" : "lng",
+             "type": "quantitative"
+           },
+           "latitude":{
+             "field":"lat",
+             "type": "quantitative"
+           },
+            "size": {
+              "field" : "population",
+              "scale": {
+          "type": "threshold",
+          "domain": [5000000,8000000,12000000,15000000],
+          "range": [20,200, 300 , 800]
+        }
+            },
+          "color": {"value": "#28B79A"},
+          "opacity" : {"value" :0.55}
+         }
+        },{
+          "transform": [{"filter" : "datum.city =='Guangzhou' ||datum.city =='Beijing' ||datum.city =='Shanghai' ||datum.city =='Wuhan' "}],
+          "mark": {
+            "type": "text"
+          },
+          "encoding": {
+             "longitude":{
+             "field" : "lng",
+             "type": "quantitative"
+           },
+           "latitude":{
+             "field":"lat",
+             "type": "quantitative"
+           },
+            "text": {"field": "city", "type": "nominal"}
+          }
+        }]
+    }
+    ],
+    "view": {"stroke": null}
+  }

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 300,
+  "height": 300,
+  "config": {
+    "background": "#000000",
+    "title": {
+      "font": "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+      "fontSize": "50",
+      "color": "aliceblue"
+    },
+    "legend": {
+      "labelFont": "sans-serif",
+      "labelColor": "aliceblue",
+      "labelFontSize": "13",
+      "titleFont": "sans-serif",
+      "titleFontSize": "15",
+      "titleColor": "aliceblue"
+    }
+  },
+  "data": {
+    "url": "data/asia_diet(2018).csv"
+  },
+  "mark": {"type": "bar"},
+  "transform": [
+    {
+      "filter": "datum.Item ==  'Maize' || datum.Item ==  'Wheat' || datum.Item == 'Rice, paddy' || datum.Item == 'Sugar cane'"
+    }
+  ],
+  "selection": {
+    "continent_highlight": {
+      "type": "multi",
+      "fields": ["Item"],
+      "bind": "legend"
+    }
+  },
+  "encoding": {
+    "x": {
+      "timeUnit": "year",
+      "field": "Year",
+      "type": "ordinal",
+      "axis": {
+        "title": "Year",
+        "titleColor": "aliceblue",
+        "labelColor": "white"}
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Value",
+      "type": "quantitative",
+      "axis": {
+        "title": "Tonnes",
+        "titleColor": "aliceblue",
+        "labelColor": "white"}
+    },
+    "color": {
+      "field": "Item",
+      "title": "Crop",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Maize", "Wheat", "Rice, paddy", "Sugar cane"],
+        "range": ["#8a8a8a", "#fff700", "#eb3434", "#ff8400"]
+      }
+    },
+    "opacity": {
+      "condition": {"selection": "continent_highlight", "value": 1.8},
+      "value": 0.1
+    }
+  },
+  "view": {"stroke": null}
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 400,
+  "height": 300,
+  "config": {
+    "background": "#000000",
+    "title": {
+      "font": "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+      "fontSize": "40",
+      "color": "aliceblue",
+      "align": "center"
+    },
+    "legend": {
+      "labelFont": "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+      "labelColor": "aliceblue",
+      "labelFontSize": "13",
+      "titleFont": "sans-serif",
+      "titleFontSize": "15",
+      "titleColor": "aliceblue"
+    }
+  },
+  "data": {
+    "url": "js/onlyAsia.topojson",
+    "format": {"type": "topojson", "feature": "custom"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.admin",
+      "from": {
+        "data": {
+          "url": "data/vegetable_per_capita(2018).csv"
+        },
+        "key": "Area",
+        "fields": ["Vegetable per capita"]
+      }
+    }
+  ],
+  "projection": {"type": "equalEarth"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Vegetable per capita",
+      "type": "quantitative",
+      "title": "kg",
+      "scale": {
+        "type": "threshold",
+        "domain": [50, 100, 150, 200, 250, 300, 350],
+        "range": [
+          "#ffffe5",
+          "#f7fcb9",
+          "#d9f0a3",
+          "#addd8e",
+          "#78c679",
+          "#41ab5d",
+          "#238443",
+          "#005a32"
+        ]
+      }
+    }
+  },
+  "view": {"stroke": null}
+}
